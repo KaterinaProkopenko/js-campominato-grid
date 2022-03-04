@@ -1,0 +1,26 @@
+header {
+    height: 10vh;
+}
+
+main {
+    height: 83vh;
+    background-color: aquamarine;
+}
+
+footer {
+    height: 7vh;
+}
+
+div#square {
+    width: 600px;
+}
+
+div.small-square {
+    border: 1px solid black;
+    height: 60px;
+    width: 60px;
+}
+
+div.active {
+    background-color: slategray;
+}
