@@ -8,6 +8,7 @@ document.getElementById('play').addEventListener('click', function(){
     console.log(levelGame);
 
     mainPlace.innerHTML = '';
+    
     let boxNumber = 0;
 
     if(levelGame == 1){
@@ -19,18 +20,16 @@ document.getElementById('play').addEventListener('click', function(){
     }
 
     console.warn(boxNumber);
-    
-
+        
     const functionBoxes = (number) => {
-        const createBoxes = document.createElement('div');
-        createBoxes.classList.add('small-square');
-        return createBoxes;
+        let smallBox = document.createElement('div');
+        smallBox.classList.add('small-square');
+        smallBox.innerHTML = `<span>${number}</span>`;
+        return smallBox;
     };
 
-   
-    
     for (let i = 1; i <= boxNumber; i++) {
-        const smallBox = functionBoxes(i);
+        let smallBox = functionBoxes(i);
         // console.log(i);
         smallBox.addEventListener('click', function(){
             this.classList.add('active');
@@ -38,6 +37,33 @@ document.getElementById('play').addEventListener('click', function(){
     
         mainPlace.appendChild(smallBox);
     }
+
+    const bombs = generateBombs(16, boxNumber);
+    console.log(bombs);
+
+    function generateBombs(bombs, numberOfBox){
+        const generateNumbers = [];
+        for(i = 0; i < bombs; i++){
+            generateNumbers.push(generateRandomNumber(generateNumbers, 1, numberOfBox));
+        }
+        return generateNumbers;
+    }
+    
+    function generateRandomNumber(BlackList, min, max){
+        let check = false;
+        let randomInt;
+
+        while(!check){
+            randomInt = Math.floor(Math.random() * ((max + 1) - min) + min);
+
+            if(!BlackList.includes(randomInt)){
+                check = true;
+            }
+
+            return randomInt;
+        }
+    }
+
 
     
         
