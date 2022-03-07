@@ -1,22 +1,42 @@
-const mainPlace = document.getElementById('square');
+let mainPlace = document.getElementById('square');
 console.log('square grande');
 
-const functionBoxes = () => {
-    const createBoxes = document.createElement('div');
-    createBoxes.classList.add('small-square');
-    return createBoxes;
-};
+let levelGame = document.querySelector('select').value;
+console.log(levelGame);
 
-for (let i = 0; i < 100; i++) {
-    const smallBox = functionBoxes();
-    console.log(smallBox);
 
-    smallBox.addEventListener('click', function(){
-    this.classList.add('active');
-    });
 
-    mainPlace.append(smallBox);
-}
+const buttonPlay = document.getElementById('play').addEventListener('click', function(){
+    
+    const functionBoxes = () => {
+        const createBoxes = document.createElement('div');
+        createBoxes.classList.add('small-square');
+        return createBoxes;
+    };
+    
+    for (let i = 1; i <= 100; i++) {
+        const smallBox = functionBoxes();
+    
+        smallBox.addEventListener('click', function(){
+        this.classList.add('active');
+        });
+    
+        mainPlace.append(smallBox);
+    }
+
+    if(levelGaSme === 1){
+        
+    }
+
+    
+
+    
+
+    
+
+    
+})
+
 
 
 
