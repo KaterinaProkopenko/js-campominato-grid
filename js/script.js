@@ -1,32 +1,46 @@
 let mainPlace = document.getElementById('square');
 console.log('square grande');
 
-let levelGame = document.querySelector('select').value;
-console.log(levelGame);
+document.getElementById('play').addEventListener('click', function(){
+    console.log('clicked on play!');
 
+    let levelGame = parseInt(document.querySelector('#inputGroupSelect04').value);
+    console.log(levelGame);
 
+    mainPlace.innerHTML = '';
+    let boxNumber = 0;
 
-const buttonPlay = document.getElementById('play').addEventListener('click', function(){
+    if(levelGame == 1){
+        boxNumber = 100;
+    } else if (levelGame == 2){
+        boxNumber = 81;
+    } else if (levelGame == 3){
+        boxNumber = 49;
+    }
+
+    console.warn(boxNumber);
     
-    const functionBoxes = () => {
+
+    const functionBoxes = (number) => {
         const createBoxes = document.createElement('div');
         createBoxes.classList.add('small-square');
         return createBoxes;
     };
+
+   
     
-    for (let i = 1; i <= 100; i++) {
-        const smallBox = functionBoxes();
-    
+    for (let i = 1; i <= boxNumber; i++) {
+        const smallBox = functionBoxes(i);
+        // console.log(i);
         smallBox.addEventListener('click', function(){
-        this.classList.add('active');
+            this.classList.add('active');
         });
     
-        mainPlace.append(smallBox);
+        mainPlace.appendChild(smallBox);
     }
 
-    if(levelGaSme === 1){
+    
         
-    }
 
     
 
@@ -36,67 +50,3 @@ const buttonPlay = document.getElementById('play').addEventListener('click', fun
 
     
 })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* //chiamo il quadrato
-
-
-document.querySelector('button').addEventListener('click', function(){
-    const mainPlace = document.getElementById('square');
-   //creo una funziona che crea quadratti piccoli
-   const functionBoxes = () => {
-       const createBoxes = document.createElement('div');
-       createBoxes.classList.add('small-square');
-       return createBoxes;
-    };
-
-
-
-    const input = document.getElementById('level').value;
-    if (input == 'Easy') {
-        for (let i = 0; i < 100; i++) {
-            const smallBox = functionBoxes();
-
-            smallBox.addEventListener('click', function(){
-            this.classList.add('active');
-            });
-
-            mainPlace.append(smallBox);
-        }
-
-    } else if (input == 'Medium') {
-        for (let i = 0; i < 81; i++) {
-            const smallBox = functionBoxes();
-
-            smallBox.addEventListener('click', function(){
-            this.classList.add('active');
-            });
-
-            mainPlace.append(smallBox);
-        }
-
-    } else if ( input == 'Hard') {
-        for (let i = 0; i < 49; i++) {
-            const smallBox = functionBoxes();
-
-            smallBox.addEventListener('click', function(){
-            this.classList.add('active');
-            });
-
-            mainPlace.append(smallBox);
-        }
-    };
-}); */
