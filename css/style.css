@@ -11,9 +11,9 @@ footer {
     height: 7vh;
 }
 
-
 div#square {
     width: 500px;
+    height: 500px;
     display: flex;
     flex-wrap: wrap;
     margin: 0 auto;
@@ -27,4 +27,10 @@ div.small-square {
 
 div.active {
     background-color: slategray;
+    color: white;
+}
+
+div.active-bomb {
+    background-color: brown;
+    color: white;
 }
